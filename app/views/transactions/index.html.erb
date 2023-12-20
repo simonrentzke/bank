@@ -1,0 +1,26 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Transactions</h1>
+    <%= link_to "New transaction", new_user_transaction_path(@user), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <table class="my-5 table-auto border-collapse w-full max-w-screen-md text-sm">
+    <thead>
+      <th class="text-left">Account Number</th>
+      <th class="text-left">Type</th>
+      <th class="text-right">Amount</th>
+      <th class="text-right">Date</th>
+    </thead>
+
+    <tbody class="bg-white dark:bg-slate-800">
+      <%= render @transactions %>
+    </tbody>
+  </table>
+
+  <%= link_to "Back to users", users_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>
+
